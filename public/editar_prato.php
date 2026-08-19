@@ -46,3 +46,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Prato</title>
+</head>
+<body>
+    <h2>Editar Prato</h2>
+    <?php if ($mensagem): ?><p><?= $mensagem ?></p><?php endif; ?>
+    <form method="POST">
+        <label>Usuário Responsável:</label><br>
+        <select name="usuario_id" required>
+            <?php foreach ($usuarios as $u): ?>
+                <option value="<?= $u['id'] ?>" <?= $u['id'] == $prato['usuario_id'] ? 'selected' : '' ?>>
+                    <?= htmlspecialchars($u['nome']) ?>
+                </option>
+            <?php endforeach; ?>
+        </select><br><br>
+
+        <label>Nome do Prato:</label><br>
+        <input type="text" name="nome" value="<?= htmlspecialchars($prato['nome']) ?>" required><br><br>
+
+        <label>Descrição:</label><br>
+        <textarea name="descricao" required><?= htmlspecialchars($prato['descricao']) ?></textarea><br><br>
+
+        <label>Preço:</label><br>
+        <input type="number" step="0.01" name="preco" value="<?= $prato['preco'] ?>" required><br><br>
+
+        <label>Categoria:</label><br>
+        <input type="text" name="categoria" value="<?= htmlspecialchars($prato['categoria']) ?>" required><br><br>
+
+        <button type="submit">Atualizar</button>
+    </form>
+    <a href="index.php">Cancelar</a>
+</body>
+</html>
+

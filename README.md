@@ -40,3 +40,8 @@ restaurante/
     ├── editar_prato.php      # Edição dos pratos cadastrados
     ├── excluir_prato.php     # Exclusão de pratos
     └── index.php             # Dashboard com a tabela principal e filtros
+
+---
+
+http://localhost:444/artur_lopes_2026/restaurante/public/index.php
+
